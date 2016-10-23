@@ -64,7 +64,7 @@ fn_tag $branch $release_tag
 # fn_switch_branch $release_tag
 
 echo -n "Pushing to origin... "
-git push --follow-tags origin $branch &>/dev/null || fn_error "Push to origin failed."
+git push origin $branch $release_tag &>/dev/null || fn_error "Push to origin failed."
 fn_success
 
 echo "all done"
