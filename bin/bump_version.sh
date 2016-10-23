@@ -38,6 +38,7 @@ if [ ! -z $bump_type ]
 then
   new_version=`semver --increment $bump_type $current_version | tr -d '\n'`
   echo -n "New version generated: $current_version -> $new_version"
+  fn_success
 else
   echo -n "Current version is '$current_version', please enter the new version: "
   read new_version
