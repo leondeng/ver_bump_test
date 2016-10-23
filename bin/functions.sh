@@ -48,10 +48,10 @@ fn_tag_exists() {
 }
 
 fn_tag() {
-  local tag=$1
+  local tag=$2
   local source="$(fn_current_branch)"
-  echo -ne "Tagging branch $source with $tag..."
   git tag $tag
+  fn_success
 }
 
 fn_current_branch() {
