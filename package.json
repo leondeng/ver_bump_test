@@ -1,0 +1,21 @@
+{
+  "name": "ver_bump_test",
+  "title": "vbt",
+  "description": "test gulp version bump and git tag",
+  "version": "0.1.0",
+  "dependencies": {
+    "gulp-bump": "^2.4.0",
+    "gulp-filter": "^4.0.0",
+    "gulp-tag-version": "^1.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:leondeng/ver_bump_test.git"
+  },
+  "licenses": [
+    {
+      "type": "Proprietary",
+      "url": "/blob/master/LICENSE-Proprietary"
+    }
+  ]
+}
