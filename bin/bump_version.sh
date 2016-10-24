@@ -59,7 +59,7 @@ for config_file in [$config_files]; do
   if [ -f "$config_file" ];
   then
     echo -n "Updating to '$new_version' in $config_file ... "
-    sed -i "s/'version': '$current_version'\,/'version': '$new_version'\,/" $config_file || fn_abort "Update version failed."
+    sed -i "s/\"version\": \"$current_version\"\,/\"version\": \"$new_version\"\,/" $config_file || fn_abort "Update version failed."
     fn_success
   fi
 done
