@@ -18,5 +18,8 @@
           "url": "git@github.com:leondeng/ver_bump_test.git",
           "type": "git"
         }
+    ],
+    "bin": [
+        "bin/bump_version.sh"
     ]
 }
