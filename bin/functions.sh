@@ -65,16 +65,17 @@ fn_current_branch() {
 }
 
 fn_current_version() {
-  if [[-f "$config_app_file"]]; then
-    echo $(grep -A2 version $config_app_file | tr '\n' ' ' | cut -d\' -f4)
-  else
-    for config_file in $config_files do
-      if [[-f "$config_file"]]; then
-        echo $(grep -A0 '"version": "' $config_file | tr '\",' ' ' | cut -d\: -f2 | sed -e 's/^[[:space:]]*//')
-        break
-      fi
-    done
-  fi
+  echo $(grep -A2 version $config_app_file | tr '\n' ' ' | cut -d\' -f4)
+  # if [[-f "$config_app_file"]]; then
+  #   echo $(grep -A2 version $config_app_file | tr '\n' ' ' | cut -d\' -f4)
+  # else
+  #   for config_file in $config_files do
+  #     if [[-f "$config_file"]]; then
+  #       echo $(grep -A0 '"version": "' $config_file | tr '\",' ' ' | cut -d\: -f2 | sed -e 's/^[[:space:]]*//')
+  #       break
+  #     fi
+  #   done
+  # fi
 }
 
 fn_switch_branch() {
