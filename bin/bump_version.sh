@@ -5,7 +5,8 @@ source "$BASE/functions.sh"
 # defaults
 branch="master"
 config_app_file="config/app.php"
-config_files="composer.json
+config_files="
+composer.json
 package.json
 bower.json
 "
