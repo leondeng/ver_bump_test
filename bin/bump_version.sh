@@ -7,7 +7,8 @@ branch="master"
 config_app_file="config/app.php"
 config_files="composer.json
 package.json
-bower.json"
+bower.json
+"
 bump_type=""
 
 while getopts b:t:mdsh opt; do
