@@ -65,12 +65,12 @@ fn_current_branch() {
 }
 
 fn_current_version() {
-  if [-f "$config_app_file"] then
+  if [-f "$config_app_file"]; then
     echo $(grep -A2 version $config_app_file | tr '\n' ' ' | cut -d\' -f4)
     return 1
   fi
   for config_file in $config_files do
-    if [-f "$config_file"] then
+    if [-f "$config_file"]; then
       echo $(grep -A0 '"version": "' $config_file | tr '\",' ' ' | cut -d\: -f2 | sed -e 's/^[[:space:]]*//')
       break
     fi
