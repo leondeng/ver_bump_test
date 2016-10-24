@@ -1,6 +1,6 @@
 {
   "name": "ver_bump_test",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "description": "Version bump test.",
   "keywords": [
     "version bump"
