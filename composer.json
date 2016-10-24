@@ -1,0 +1,22 @@
+{
+    "name": "leondeng/version_bump_test",
+    "version": "0.1.8",
+    "description": "Version bump script test.",
+    "license": "MIT",
+    "keywords":
+    [
+        "version bump"
+    ],
+    "authors": [
+        {
+            "name": "Fan Deng",
+            "email": "leondeng@gmail.com"
+        }
+    ],
+    "repositories": [
+        {
+          "url": "git@github.com:leondeng/ver_bump_test.git",
+          "type": "git"
+        }
+    ]
+}

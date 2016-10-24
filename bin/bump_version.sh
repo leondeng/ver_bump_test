@@ -4,7 +4,10 @@ source "$BASE/functions.sh"
 
 # defaults
 branch="master"
-config_file="config/app.php"
+config_app_file="config/app.php"
+config_files="composer.json
+package.json
+bower.json"
 bump_type=""
 
 while getopts b:t:mdsh opt; do
@@ -44,9 +47,23 @@ else
   read new_version
 fi
 
-echo -n "Updating to '$new_version'... "
-sed -i "s/'version' => '$current_version'/'version' => '$new_version'/" $config_file || fn_abort "Update version failed."
-fn_success
+if [-f "$config_app_file"] then
+  echo -n "Updating to '$new_version' in $config_app_file ... "
+  sed -i "s/'version' => '$current_version'/'version' => '$new_version'/" $config_app_file || fn_abort "Update version failed."
+  fn_success
+fi
+
+for config_file in $config_files do
+  if [-f "$config_file"] then
+    echo -n "Updating to '$new_version' in $config_file ... "
+    sed -i "s/'version': '$current_version'\,/'version': '$new_version'\,/" $config_file || fn_abort "Update version failed."
+    fn_success
+  fi
+done
+
+# echo -n "Updating to '$new_version' in composer.json ... "
+# sed -i "s/'version' => '$current_version'/'version' => '$new_version'/" composer.json || fn_abort "Update version failed."
+# fn_success
 
 echo -n "Commiting changes... "
 last=$(git add $config_file && git commit -m "version bump;") || fn_abort "Couldn't commit version bump."

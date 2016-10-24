@@ -1,0 +1,21 @@
+{
+  "name": "ver_bump_test",
+  "version": "0.1.8",
+  "description": "Version bump test.",
+  "keywords": [
+    "version bump"
+  ],
+  "homepage": "https://github.com/leondeng/ver_bump_test",
+  "license": "Proprietary",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:leondeng/ver_bump_test.git"
+  },
+  "authors": [
+    {
+        "name": "Fan Deng",
+        "email": "leondeng@gmail.com"
+    }
+  ]  
+}

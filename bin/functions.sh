@@ -1,5 +1,11 @@
 #!/bin/bash
 
+config_app_file="config/app.php"
+
+config_files="composer.json
+package.json
+bower.json"
+
 fn_success() {
   echo -e "\033[32mok\033[00m"
 }
@@ -59,7 +65,16 @@ fn_current_branch() {
 }
 
 fn_current_version() {
-  echo $(grep -A2 version config/app.php | tr '\n' ' ' | cut -d\' -f4)
+  if [-f "$config_app_file"] then
+    echo $(grep -A2 version $config_app_file | tr '\n' ' ' | cut -d\' -f4)
+    return
+  fi
+  for config_file in $config_files do
+    if [-f "$config_file"] then
+      echo $(grep -A0 '"version": "' $config_file | tr '\",' ' ' | cut -d\: -f2 | sed -e 's/^[[:space:]]*//')
+      break
+    fi
+  done
 }
 
 fn_switch_branch() {
