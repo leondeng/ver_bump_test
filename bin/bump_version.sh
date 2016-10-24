@@ -69,7 +69,7 @@ done
 # fn_success
 
 echo -n "Commiting changes... "
-last=$(git add $config_file && git commit -m "version bump;") || fn_abort "Couldn't commit version bump."
+last=$(git add -u && git commit -m "version bump;") || fn_abort "Couldn't commit version bump."
 fn_success
 
 # echo -ne "Clearing cache..."
