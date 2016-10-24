@@ -65,7 +65,7 @@ fn_current_branch() {
 }
 
 fn_current_version() {
-  if [-f $config_app_file]; then
+  if [-f "$config_app_file"]; then
     echo $(grep -A2 version $config_app_file | tr '\n' ' ' | cut -d\' -f4)
   else
     for config_file in $config_files do
